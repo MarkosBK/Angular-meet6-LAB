@@ -19,13 +19,14 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <div class="modal-body d-flex flex-wrap" *ngFor="let item of this.people">
+      <div class="modal-body d-flex flex-wrap justify-content-between">
 
-        <div class="card" style="width: 13rem;">
-          <img src={{item.Preview}} class="card-img-top" alt="img">
+        <div class="card shadow" style="width: 13rem;" *ngFor="let item of this.people">
+          <div style="background-image: url('{{item.Preview}}');" class="divImg"></div>
+          <!-- <img src= class="card-img-top" alt="img"> -->
           <div class="card-body">
-            <p class="card-text">{{item.Name}}</p>
-            <p class="card-text">{{item.Hobby.Title}}</p>
+            <b class="card-text">{{item.Name}}</b>
+            <p class="card-text" style="color: brown;">{{item.Hobby.Title}}</p>
             <p class="card-text">{{item.Hobby.Description}}</p>
           </div>
         </div>
