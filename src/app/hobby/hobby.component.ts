@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Hobby } from '../Hobby';
 import { Person } from '../Person';
+import {PersonService} from "../person.service"
 @Component({
   selector: 'app-hobby',
   templateUrl: './hobby.component.html',
@@ -10,12 +11,16 @@ import { Person } from '../Person';
 
 
 export class HobbyComponent implements OnInit {
-  people: Person[] = [];
-  constructor() { }
+  people: Person[];
+  editPerson:Person;
+  constructor(private personService:PersonService) { }
 
   ngOnInit(): void {
-    this.people.push(new Person("Дональд Трамп", "../assets/tramp.jpg", new Hobby("Управление страной", "У президента много обязанностей :)")));
-    this.people.push(new Person("Джо Байден", "../assets/baiden.jpg", new Hobby("Управление страной", "У президента много обязанностей :)")));
+    this.people=this.personService.getData()
+    this.editPerson=this.people[0];
   }
 
+  edit(person){
+    this.editPerson=person;
+  }
 }

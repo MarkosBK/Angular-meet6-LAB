@@ -1,8 +1,5 @@
-.divImg{
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-    height: 200px;
-    width: 100%;
-    padding: 20px;
+.personActive{
+    border: 1px solid rgb(136, 145, 163);
+    transform: scale(1.05);
+    transition: .1s;
 }
